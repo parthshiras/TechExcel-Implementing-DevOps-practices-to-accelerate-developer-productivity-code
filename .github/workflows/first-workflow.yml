@@ -30,10 +30,18 @@ jobs:
     # Runs a single command using the runners shell
     - name: Send greeting
       run: echo "Step 1 Complete!"
+      run: echo "Step 2 Complete!"
 
   job2:
     runs-on: ubuntu-latest
+    needs: job1
 
     steps:
-    - name: Another greeting
-      run: echo "Step 2 Complete!"
+      - name: Cowsays
+      uses: mscoutermarsh/cowsays-action@v1
+      with:
+        # What does the cow say?
+        text: # optional, default is Ship it!!!!!
+        # Color of your cow
+        color: # optional, default is white
+              
